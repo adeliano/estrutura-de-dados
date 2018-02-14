@@ -8,11 +8,31 @@ public class ListaLigada {
 	private int totalDeElementos;
 	
 	public void adiciona(Object elemento) {
-		// implementacao
+		// adiciona no fim
+		if(this.totalDeElementos==0){
+			this.adicionaNoComeco(elemento);
+		}
+		Celula novoUltimo = new Celula(null, elemento);
+		this.ultima.setProxima(novoUltimo);
+		this.ultima = novoUltimo;
+		
+		this.totalDeElementos++;
 	}
 	
 	public void adiciona(int posicao, Object elemento) {
-		// implementacao
+		// adiciona no meio
+		
+		if(posicao == 0){
+			this.adicionaNoComeco(elemento);
+			
+		} else if (posicao == this.totalDeElementos){
+			this.adiciona(elemento);
+		} else {
+			Celula anterior = this.pega(posicao -1);
+			Celula nova = new Celula(anterior.getProxima(), elemento);
+			anterior.setProxima(nova);
+			this.totalDeElementos++;
+		}
 	}
 	
 	public void adicionaNoComeco(Object elemento) {
@@ -26,29 +46,56 @@ public class ListaLigada {
 	}
 	
 	public Object pega(int posicao) {
-		// implementacao
-		return null;
+		
+		Celula atual = primeira;
+		for(int i = 0; i< posicao; i++){
+			atual = atual.getProxima();
+		}
+		
+		return atual;
 	}
 	
 	public void remove(int posicao) {
-		// implementacao
+		
 	}
 	
+
 	public void removeDoComeco() {
-		// implementacao
+		this.primeira = this.primeira.getProxima();
+		this.totalDeElementos--;
+		
+		if(this.totalDeElementos ==0){
+			this.ultima = null;
+		}
 	}
 	
 	public void removeDoFim() {
-		// implementacao
+		
+		if(this.totalDeElementos == 1) {
+			this.removeDoComeco();
+		} else {
+			Celula penultimo = this.ultima.getAnterior();
+			penultimo.setProxima(null);
+			this.ultima = penultimo;
+			this.totalDeElementos--;
+		}
 	}
 	
 	public int tamanho() {
-		// implementacao
-		return 0;
+		
+		return this.totalDeElementos;
 	}
-	public boolean contem(Object o) {
-		// implementacao
-		return false;
+	public boolean contem(Object elemento) {
+		Celula atual = this.primeira;
+		
+		while (atual !=null){
+			if(atual.getElemento().equals(elemento)){
+				return true;
+			}
+			atual = atual.getProxima();
+		}
+		
+		return true;
 	}
 	
 	

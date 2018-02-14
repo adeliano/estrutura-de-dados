@@ -3,6 +3,7 @@ package br.edu.ifce.estruturas.lista;
 public class Celula {
 
 	private Celula proxima;
+	private Celula anterior;
 	
 	private Object elemento;
 	
@@ -23,7 +24,20 @@ public class Celula {
 		return proxima;
 	}
 	
+	public void setAnterior(Celula anterior) {
+		this.anterior = anterior;
+		
+	}
+	public Celula getAnterior() {
+		return anterior;
+	}
 	public Object getElemento() {
 		return elemento;
 	}
-}
+
+	
+	}
+
+	
+	
+	
