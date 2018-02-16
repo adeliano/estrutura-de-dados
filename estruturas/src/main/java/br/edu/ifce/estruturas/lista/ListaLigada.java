@@ -45,7 +45,7 @@ public class ListaLigada {
 		this.totalDeElementos++;
 	}
 	
-	public Object pega(int posicao) {
+	public Celula pega(int posicao) {
 		
 		Celula atual = primeira;
 		for(int i = 0; i< posicao; i++){
