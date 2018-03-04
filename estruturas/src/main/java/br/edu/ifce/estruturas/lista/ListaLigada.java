@@ -1,5 +1,6 @@
 package br.edu.ifce.estruturas.lista;
 
+
 public class ListaLigada {
 
 	private Celula primeira;
@@ -28,7 +29,7 @@ public class ListaLigada {
 		} else if (posicao == this.totalDeElementos){
 			this.adiciona(elemento);
 		} else {
-			Celula anterior = this.pega(posicao -1);
+			Celula anterior = this.pega(posicao-1);
 			Celula nova = new Celula(anterior.getProxima(), elemento);
 			anterior.setProxima(nova);
 			this.totalDeElementos++;
