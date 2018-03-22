@@ -10,7 +10,7 @@ public class Conjunto {
 	private ArrayList<LinkedList<String>> tabela = new ArrayList<LinkedList<String>>();
 	
 	public Conjunto(){
-		for(int i= 0; i<26; i++){
+		for(int i= 0; i<19; i++){
 			LinkedList<String> lista = new LinkedList<String>();
 			tabela.add(lista);
 		}
